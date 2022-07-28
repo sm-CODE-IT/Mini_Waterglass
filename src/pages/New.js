@@ -7,7 +7,7 @@ import MyButton from "./../components/MyButton";
 import EmotionItem from "./../components/EmotionItem";
 
 import { getStringDate } from "../util/date.js";
-import { emotionList } from "../util/emotion.js";
+import { emotionList } from "../util/emotionList";
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
