@@ -1,110 +1,27 @@
-import { useEffect, useReducer, useRef } from "react";
-import React from "react";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import New from "./pages/New";
-import Edit from "./pages/Edit";
-import Diary from "./pages/Diary";
-// COMPONENTS
-
-const reducer = (state, action) => {
-  let newState = [];
-  switch (action.type) {
-    case "INIT": {
-      return action.data;
-    }
-    case "CREATE": {
-      const newItem = {
-        ...action.data,
-      };
-      newState = [newItem, ...state];
-      break;
-    }
-    case "REMOVE": {
-      newState = state.filter((it) => it.id !== action.targetId);
-      break;
-    }
-    case "EDIT": {
-      newState = state.map((it) =>
-        it.id === action.data.id ? { ...action.data } : it
-      );
-      break;
-    }
-    default:
-      return state;
-  }
-  localStorage.setItem("diary", JSON.stringify(newState));
-  return newState;
-};
-
-export const DiaryStateContext = React.createContext();
-export const DiaryDispatchContext = React.createContext();
+import React, {useState} from 'react';
+import {useTheme} from "./components/useTheme"; // 환경별 테마 정보 가져오기
+import './App.css';
 
 function App() {
-  useEffect(() => {
-    const localData = localStorage.getItem("diary");
-    if (localData) {
-      const diaryList = JSON.parse(localData).sort(
-        (a, b) => parseInt(b.id) - parseInt(a.id)
-      );
+    // hook 함수 사용
+    const [themeMode, toggleTheme] = useTheme(); 
+    const [isClicked, setIsClicked] = useState(false);
+    // 테마에 맞는 버튼 이미지 경로
+    const theme = themeMode === 'light' ? process.env.PUBLIC_URL + "/assets/sun.png" : process.env.PUBLIC_URL + "/assets/moon.png";
 
-      if (diaryList.length >= 1) {
-        dataId.current = parseInt(diaryList[0].id) + 1;
-        dispatch({ type: "INIT", data: diaryList });
-      }
-    } else {
-      dispatch({ type: "INIT", data: [] });
+    // spinner 만들기 위한 함수
+    const handleThemeButton = () => {
+      setIsClicked(true);
     }
-  }, []);
 
-  const [data, dispatch] = useReducer(reducer, []);
-  const dataId = useRef(0);
-  // CREATE
-  const onCreate = (date, content, emotion) => {
-    dispatch({
-      type: "CREATE",
-      data: {
-        id: dataId.current,
-        date: new Date(date).getTime(),
-        content,
-        emotion,
-      },
-    });
-    dataId.current += 1;
-  };
-  // REMOVE
-  const onRemove = (targetId) => {
-    dispatch({ type: "REMOVE", targetId });
-  };
-  // EDIT
-  const onEdit = (targetId, date, content, emotion) => {
-    dispatch({
-      type: "EDIT",
-      data: {
-        id: targetId,
-        date: new Date(date).getTime(),
-        content,
-        emotion,
-      },
-    });
-  };
-  return (
-    <DiaryStateContext.Provider value={data}>
-      <DiaryDispatchContext.Provider value={{ onCreate, onRemove, onEdit }}>
-        <BrowserRouter>
-          <div className="App">
-            <Routes>
-              <Route path="/" element={<Home></Home>}></Route>
-              <Route path="/new" element={<New></New>}></Route>
-              <Route path="/edit/:id" element={<Edit></Edit>}></Route>
-              <Route path="/diary/:id" element={<Diary></Diary>}></Route>
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </DiaryDispatchContext.Provider>
-    </DiaryStateContext.Provider>
-  );
+    return (
+      <div className="App">
+        <div className={["theme", `${themeMode}`].join(" ")} onClick={handleThemeButton}>
+            <img src={theme} className={["theme_button_wrapper", isClicked ? 'theme_button_clicked' : ''].join(' ')} onClick={toggleTheme} />
+            <p>모드 변환</p>
+        </div>
+      </div>
+    );
 }
 
 export default App;

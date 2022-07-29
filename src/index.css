@@ -1,13 +1,107 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+*,
+*::before,
+*::after {
+  border: 0;
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a, ins {
+  text-decoration: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 100%;
+}
+html body {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  text-rendering: optimizelegibility;
+}
+html h1, html h2, html h3, html h4, html h5, html h6 {
+  /* Positioning */
+  /* Display and Box model */
+  margin: 3rem 0 1.38rem;
+  /* Typography */
+  color: black;
+  font-family: "Bree Serif", "Arial Black", sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  /* Other */
+}
+html h1 {
+  /* Positioning */
+  /* Display and Box model */
+  margin-top: 0;
+  /* Typography */
+  font-size: 3.052rem;
+  /* Other */
+}
+html h2 {
+  /* Positioning */
+  /* Display and Box model */
+  /* Typography */
+  font-size: 2.441rem;
+  /* Other */
+}
+html h3 {
+  /* Positioning */
+  /* Display and Box model */
+  /* Typography */
+  font-size: 1.953rem;
+  /* Other */
+}
+html h4 {
+  /* Positioning */
+  /* Display and Box model */
+  /* Typography */
+  font-size: 1.563rem;
+  /* Other */
+}
+html h5 {
+  /* Positioning */
+  /* Display and Box model */
+  /* Typography */
+  font-size: 1.25rem;
+  /* Other */
+}
+html h6 {
+  /* Positioning */
+  /* Display and Box model */
+  /* Typography */
+  font-size: 1rem;
+  /* Other */
+}
+html p {
+  margin-bottom: 1.75rem;
+  word-spacing: 0.25em;
+}
+html small, html .text_small {
+  /* Positioning */
+  /* Display and Box model */
+  /* Typography */
+  font-size: 0.8rem;
+  /* Other */
+}
+
+main {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: 1.75rem;
+}
+
+/*# sourceMappingURL=index.css.map */
