@@ -28,10 +28,7 @@
   height: 50px;
   cursor: pointer;
 }
-.App .theme_button_clicked {
-  animation: ani_theme_button 0.5s;
-}
-.App .theme_button:hover {
+.App .theme_button_wrapper:hover {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
 }
