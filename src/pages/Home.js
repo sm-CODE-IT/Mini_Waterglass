@@ -68,7 +68,7 @@ const Home = () => {
         }}
         eventMouseEnter={(mouseEnterInfo) => {
           mouseEnterInfo.el.style.cssText =
-            "transform:scaleX(1.2) scaleY(1.2) ;"
+            "transform:scaleX(1.4) scaleY(1.2) ;"
            mouseEnterInfo.el.style.transition="1s";
         }}
         eventMouseLeave={(mouseLeaveInfo) => {
