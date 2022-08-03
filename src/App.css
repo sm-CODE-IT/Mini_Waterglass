@@ -371,4 +371,18 @@ header button {
   overflow-wrap: break-word; 
   color: black;
 }
+.fc-daygrid-day-events {
+  height: 9vh;
+  margin: 5px;
+}
+.fc-daygrid-day-events:hover {
+ 
+  background-image: url('../public/assets/addDiary.png');
+  background-repeat: no-repeat;
+  background-size: 65px;
+  
+ margin-left: 10%;
+  cursor: pointer;
+ 
+}
 
