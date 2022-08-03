@@ -1,5 +1,6 @@
 # 💦 Emotion Diary with Mini_Waterglass
 
+감정 일기장 :: 오늘의 일기를 매일매일 작성해서 감정 이미지들로 달력을 채워보세요! (자세한 기능은 아래 링크를 참조해주세요!) <br>
 <https://mini-waterglass.web.app/>
 
 ## ✏️ Lecture
