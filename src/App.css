@@ -41,8 +41,7 @@ body {
 }
 .App {
   min-height: 100vh;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 .App .theme_button_wrapper {
   cursor: pointer;
@@ -183,7 +182,10 @@ header button {
   font-size: 28px;
   font-family: 'Nanum Myeongjo', serif;
 }
-
+.DiaryEditor .alertBlank {
+  border: 2px solid #fd585f;
+  border-radius: 5px;
+}
 .DiaryEditor .emotion_list_wrapper {
   display: grid;
   
@@ -193,19 +195,21 @@ header button {
   color: black;
 }
 .DiaryEditor .text_wrapper {
-  display: flex;
-  word-wrap: break-word;
-  justify-content: center;
+  display: grid;
+  
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2%;
+
+  color: black;
 
   margin-bottom: 20px;
-
 }
-.DiaryEditor textarea {
+.DiaryEditor .editor {
   font-family: 'Nanum Pen Script';
   font-size: 24px;
 
   box-sizing: border-box;
-  width: 280px;
+  min-width: 100%;
   min-height: 300px;
   resize: vertical;
 
@@ -214,18 +218,14 @@ header button {
   background-color: #ececec;
 
   padding: 20px;
-  margin-right: 40px;
 }
-.DiaryEditor .alertBlank {
-  border: 2px solid #fd585f;
-  border-radius: 5px;
-}
+
 .DiaryEditor .preview {
   font-family: 'Nanum Myeongjo', serif;
   font-size: 20px;
 
   box-sizing: border-box;
-  width: 280px;
+  /* max-width: 280px; */
   min-height: 300px;
 
   border: none;
@@ -234,6 +234,9 @@ header button {
 
   padding: 10px;
   color: black;
+
+  word-break: keep-all;
+  overflow-wrap: break-word; 
 }
 .control_box {
   display: flex;

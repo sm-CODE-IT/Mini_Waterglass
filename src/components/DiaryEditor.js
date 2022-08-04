@@ -117,7 +117,7 @@ const DiaryEditor = ({ isEdit, originData, clickedDate }) => {
           <div className="text_wrapper">
             <div>
               <h4 className="title">오늘의 일기</h4>
-              <div className="input_box text_wrapper">
+              <div className="input_box textarea_wrapper">
                 <MarkdownEditor
                   content={content}
                   setContent={setContent}
